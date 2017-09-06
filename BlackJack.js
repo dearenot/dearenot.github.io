@@ -326,6 +326,9 @@ model_GameModel.prototype = {
 			++_g;
 			if(handValue < 21) handValue += card.getValue(); else if(card.rank == model_Rank.Ace) handValue += 1;
 		}
+		if(hand.length == 2) {
+			if(hand[0].rank == hand[1].rank && hand[0].rank == model_Rank.Ace) handValue = 12;
+		}
 		return handValue;
 	}
 	,hitCard: function(player,boardDeck) {
